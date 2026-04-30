@@ -1,0 +1,9 @@
+<h1> Staff Spotlight </h1>
+<div data-sly-use.staff="com.myproject.core.models.StaffSpotlightModel" class="staff-card">
+    <h2>${staff.name}</h2> 
+    <p>Department: ${staff.department}</p>
+    
+    <span data-sly-test="${staff.isHighAchiever}" class="badge">
+        ⭐ High Achiever
+    </span>
+</div>
