@@ -1,0 +1,9 @@
+<h1>sub navigation</h1>
+
+<sly data-sly-use.nav="com.myproject.core.models.AboutUsNavigation">
+    <ul>
+        <li data-sly-repeat="${nav.navigationItems}">
+            <a href="${item.subNavUrl}">${item.subNavTitle}</a>
+        </li>
+    </ul>
+</sly>
