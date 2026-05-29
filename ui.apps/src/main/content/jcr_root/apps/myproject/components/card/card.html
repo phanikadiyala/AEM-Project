@@ -1,0 +1,49 @@
+<div data-sly-use.cardModel="com.myproject.core.models.Card"
+     class="card">
+    
+    <!-- Check if component has valid data -->
+    <sly data-sly-test="${!cardModel.valid}">
+        <div class="alert alert-warning">
+            Please configure the Card component (title and image required)
+        </div>
+    </sly>
+
+    <!-- Render card if valid -->
+    <sly> 
+        
+        <!-- Card Image -->
+        <div class="card__image">
+
+        <p>DEBUG: image = ${cardModel.image}</p>
+            <img src="${cardModel.image.src}" 
+                 alt="${cardModel.title}"
+                 class="card__img"/>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card__body">
+            
+            <!-- Title -->
+            <h3 class="card__title">${cardModel.title}</h3>
+
+            <!-- Description -->
+            <sly data-sly-test="${cardModel.description}">
+                <p class="card__description">${cardModel.description}</p>
+            </sly>
+
+            <!-- Link Button -->
+            <sly data-sly-test="${cardModel.linkUrl}">
+                <a href="${cardModel.linkUrl}" class="card__link">
+                    Read More →
+                </a>
+            </sly>
+        </div>
+    </sly>
+
+
+
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientLib.css @ categories='myproject.card'}"/>
+
+</div>
